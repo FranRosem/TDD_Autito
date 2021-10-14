@@ -17,9 +17,12 @@ describe("Autito ", () => {
         expect(f.createRoad("5,5/1,2N/IIIAAIAIA")).toEqual([[5,5],[1,2],"N","IIIAAIAIA"]);
     });
     it("Debería devolver la posición final del auto", () => {
-        expect(f.moveCar("5,5/3,3E/AADAADADDA")).toEqual("5,1E");
+        expect(f.moveCar("5,5/3,3E/AADAADADDA")).toEqual([5,1,"E"]);
     });
     it("Debería devolver la posición final del auto 2do", () => {
-        expect(f.moveCar("5,5/1,2N/IAIAIAIAA")).toEqual("1,3N");
+        expect(f.moveCar("5,5/1,2N/IAIAIAIAA")).toEqual([1,3,"N"]);
+    });
+    it("Debería avanzar 2 coordenadas al saltar", () => {
+        expect(f.moveCar("5,5/1,2N/S")).toEqual([1,4,"N"]);
     });
 });

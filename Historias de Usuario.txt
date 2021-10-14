@@ -1,0 +1,34 @@
+Como: Usuario
+Quiero: Enviar la posición inicial del autito
+Para: guardar la posición
+Criterios de confirmacion: Enviar la información de la posición inicial del Autito
+
+Como: Usuario
+Quiero: Que mi auto tenga una posición por defecto
+Para: Empezar desde las coordenadas 0,0
+Criterios de confirmacion: No envíar mi posición
+
+Como: Usuario
+Quiero: Mover mi autito una posicion
+Para: Poder ver como se acerca a otros planetas
+Criterios de confirmacion: Ver la nueva posición de autito
+
+Como: Usuario
+Quiero: Conocer a que dirección esta viendo mi auto
+Para: No salirme de la matriz al ir a otros panetas
+Criterios de confirmacion: Mover mi autito
+ 
+Como: Usuario
+Quiero: Mover mi autito varias veces
+Para: Verificar que no me salgo de orbita
+Criterios de confirmacion: Ver la nueva posicion del autito de acuerdo a los pasos ingresados
+
+Como: Usuario
+Quiero: Limitar el trayecto de mi autito
+Para: Evitar que se salga de la matriz y orbita
+Criterios de confirmacion: No permitir que el autito pise coordenadas negativas o los limites de la matriz
+
+Como: Desarrollador
+Quiero: Quiero crear la pista para el autito
+Para: Evitar que se salga de orbita
+Criterios de confirmacion: Si el autito llega a 0 y quiere seguir hacia -1, se debera ver como deja de avanzar y esa coordenada se mantiene en 0 hasta que tome otro camino.

@@ -22,25 +22,33 @@ function carDirection(positions) {
   return listSanatized[2];
 }
 
-function moveCarInMatrix(matrix, coordinates, direction) {
+function moveCarInMatrix(matrix, coordinates, direction, move) {
   var xPosition = coordinates[0];
   var yPosition = coordinates[1];
   switch (direction) {
     case "O":
-      if (xPosition != 0)
+      if (xPosition != 0 && move == "A")
         xPosition = xPosition - 1;
+      else if (move == "S")
+        xPosition = xPosition - 2;
       break;
     case "E":
-      if (matrix[0] != xPosition)
+      if (matrix[0] != xPosition && move == "A")
         xPosition = xPosition + 1;
+      else if (move == "S")
+      xPosition = xPosition + 2;
       break;
     case "N":
-      if (matrix[1] != yPosition)
+      if (matrix[1] != yPosition && move == "A")
         yPosition = yPosition + 1;
+      else if (move == "S")
+        yPosition = yPosition + 2;
       break;
     case "S":
-      if (yPosition != 0)
+      if (yPosition != 0 && move == "A")
         yPosition = yPosition - 1;
+      else if (move == "S")
+        yPosition = yPosition - 2;
       break;
     default:
       xPosition = xPosition;
@@ -88,14 +96,14 @@ function moveCar(commands) {
   var carDirection = myRoad[2];
   var movements = myRoad[3];
   for (var i = 0; movements[i] != null; i++) {
-    if (movements[i] != "A") {
+    if (movements[i] != "A" && movements[i] != "S") {
       carDirection = adjustDirection(carDirection, movements[i]);
     }
     else {
-      carCoordinates = moveCarInMatrix(matrix, carCoordinates, carDirection);
+      carCoordinates = moveCarInMatrix(matrix, carCoordinates, carDirection, movements[i]);
     }
   }
-  return carCoordinates[0].toString() + "," + carCoordinates[1].toString() + carDirection;
+  return [carCoordinates[0], carCoordinates[1], carDirection]
 }
 
 module.exports = {sanatizeString, carDirection, createCoordinates, createRoad, moveCarInMatrix, moveCar}
