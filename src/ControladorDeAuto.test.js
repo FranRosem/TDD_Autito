@@ -10,4 +10,7 @@ describe("Autito ", () => {
     it("Debería devolver la dirección del auto", () => {
         expect(f.carDirection("5,5N")).toEqual("N");
     });
+    it("Debería devolver la dirección default hacia el Norte si la información de la dirección es vacía", () => {
+        expect(f.carDirection("5,5")).toEqual("N");
+    });
 });
