@@ -65,20 +65,13 @@ function createRoad(instructions) {
 
 function adjustDirection(currentDirection, newDirection){
   var cardinalPoints = {
-    "O":180,
-    "E":0, 
-    "N":90, 
-    "S":270
+    "N":90,"S":270,"O":180,"E":0
   };
   var cardinalPointsInverted = {
-    180:"O",
-    0:"E", 
-    90:"N", 
-    270:"S"
+    90:"N",270:"S",180:"O",0:"E", 
   };
   var directionAngles = {
-    "D":-90,
-    "I":90
+    "I":90, "D":-90
   };
   var directionUpdated = cardinalPoints[currentDirection] + directionAngles[newDirection];
   if (directionUpdated < 0)
@@ -91,10 +84,9 @@ function adjustDirection(currentDirection, newDirection){
 function moveCar(commands) {
   let myRoad = createRoad(commands);
   var matrix = myRoad[0];
-  let carCoordinates = myRoad[1];
+  var carCoordinates = myRoad[1];
   var carDirection = myRoad[2];
   var movements = myRoad[3];
-
   for (var i = 0; movements[i] != null; i++) {
     if (movements[i] != "A") {
       carDirection = adjustDirection(carDirection, movements[i]);
@@ -103,7 +95,7 @@ function moveCar(commands) {
       carCoordinates = moveCarInMatrix(matrix, carCoordinates, carDirection);
     }
   }
-  return (""+carCoordinates[0]).toString() + "," + (""+carCoordinates[1]).toString() + carDirection;
+  return carCoordinates[0].toString() + "," + carCoordinates[1].toString() + carDirection;
 }
 
 module.exports = {sanatizeString, carDirection, createCoordinates, createRoad, moveCarInMatrix, moveCar}

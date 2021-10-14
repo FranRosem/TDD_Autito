@@ -1,15 +1,11 @@
-import sumar from "./App";
+import moveCar from "./App";
 
-const first = document.querySelector("#first-number");
-const second = document.querySelector("#second-number");
-const form = document.querySelector("#sumar-form");
+const command = document.querySelector("#command-form");
+const form = document.querySelector("#autitos-form");
 const div = document.querySelector("#resultado-div");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
-
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  const commandInput = command.value;
+  div.innerHTML = "<p>" + moveCar(commandInput) + "</p>";
 });
