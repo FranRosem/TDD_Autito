@@ -1,0 +1,11 @@
+calcularTotal(cantidad, precio, estado)
+
+- calcular total (precio * cantidad)   OK
+- calcular total incluyendo un estado por defecto CA   OK
+- calcular total incluyendo más estados
+        -UT  OK
+- calcular total para 1 descuento 
+- calcular total para varios descuentos
+
+
+- Recibir y guardar la cadena
