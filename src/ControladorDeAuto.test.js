@@ -14,13 +14,9 @@ describe("Autito ", () => {
         expect(f.carDirection("5,5")).toEqual("N");
     });
     it("Debería crear la pista de inicio del auto", () => {
-        /*
-        expect(f.createRoad("5,5/1,2N/IIIAAIAIA")[0]).toEqual([5,5]);
-        expect(f.createRoad("5,5/1,2N/IIIAAIAIA")[1]).toEqual([1,2]);
-        expect(f.createRoad("5,5/1,2N/IIIAAIAIA")[2]).toEqual("N");
-        expect(f.createRoad("5,5/1,2N/IIIAAIAIA")[3]).toEqual("IIIAAIAIA");
-        */
         expect(f.createRoad("5,5/1,2N/IIIAAIAIA")).toEqual([[5,5],[1,2],"N","IIIAAIAIA"]);
     });
-    
+    it("Debería devolver la posición final del auto", () => {
+        expect(f.moveCar("5,5/3,3E/AADAADADDA")).toEqual("5,1E");
+    });
 });
