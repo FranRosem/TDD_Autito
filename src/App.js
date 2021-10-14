@@ -24,13 +24,14 @@ function carDirection(positions) {
 
 function createRoad(instructions) {
   let explainInstructions = instructions.split("/");
+  
   var matrixDimention = explainInstructions[0];
   var carInformation = explainInstructions[1];
   var commands = explainInstructions[2];
   
   var matrix = createCoordinates(matrixDimention);
-  var coordinates = carPosition(carInformation);
-  var direction = createCoordinates(carInformation);
+  var coordinates = createCoordinates(carInformation);
+  var direction = carDirection(carInformation);
 
   return [matrix, coordinates, direction, commands];
 }
