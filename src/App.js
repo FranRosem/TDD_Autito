@@ -1,8 +1,12 @@
-function getPosition(position) {
-  if (position === "") {
-    position = "0,0";
+
+function carPosition(position) {
+  var x = position.split(",")[0];
+  var y = position.split(",")[1];
+  if (position == "") {
+    x = "0";
+    y = "0";
   }
-  return position;
+  return x + "," + y;
 }
 
-module.exports = {getPosition}
+module.exports = {carPosition}
