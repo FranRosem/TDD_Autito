@@ -1,9 +1,9 @@
-function sanatizePosition(position) {
-  let positionSplited = position.split(",");
+function sanatizeString(positions) {
+  let positionSplited = positions.split(",");
   var x = positionSplited[0];
   var y = positionSplited[1];
-  var direction = position.substr(3, 4);
-  if (position === "") {
+  var direction = positions.substr(3, 4);
+  if (positions === "") {
     x = "0"; y = "0";
   }
   else if (direction === "") {
@@ -12,19 +12,14 @@ function sanatizePosition(position) {
   return [x, y, direction];
 }
 
-function carPosition(position) {
-  var listSanatized = sanatizePosition(position);
-  return parseInt(listSanatized[0]), parseInt(listSanatized[1]);
+function createCoordinates(positions) {
+  var listSanatized = sanatizeString(positions);
+  return [parseInt(listSanatized[0]), parseInt(listSanatized[1])];
 }
 
-function carDirection(position) {
-  var listSanatized = sanatizePosition(position);
+function carDirection(positions) {
+  var listSanatized = sanatizeString(positions);
   return listSanatized[2];
-}
-
-function createMatrix(matrix) {
-  var listSanatized = sanatizePosition(position);
-  return [parseInt(listSanatized[0])], [parseInt(listSanatized[1])];
 }
 
 function createRoad(instructions) {
@@ -33,12 +28,11 @@ function createRoad(instructions) {
   var carInformation = explainInstructions[1];
   var commands = explainInstructions[2];
   
-  var matrix = createMatrix(matrixDimention);
-  var direction = carDirection(carInformation);
-  var position = carPosition(carInformation);
+  var matrix = createCoordinates(matrixDimention);
+  var coordinates = carPosition(carInformation);
+  var direction = createCoordinates(carInformation);
 
-  return [matrix, direction, position, commands];
-
+  return [matrix, coordinates, direction, commands];
 }
 
-module.exports = {carPosition, sanatizePosition, carDirection, createRoad}
+module.exports = {sanatizeString, carDirection, createCoordinates, createRoad}
