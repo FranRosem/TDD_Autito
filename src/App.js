@@ -43,7 +43,7 @@ function moveCarInMatrix(matrix, coordinates, direction) {
         yPosition = yPosition - 1;
       break;
     default:
-      return 0;
+      xPosition = xPosition;
       break;
   }
   return [xPosition, yPosition];

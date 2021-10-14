@@ -19,4 +19,7 @@ describe("Autito ", () => {
     it("Debería devolver la posición final del auto", () => {
         expect(f.moveCar("5,5/3,3E/AADAADADDA")).toEqual("5,1E");
     });
+    it("Debería devolver la posición final del auto 2do", () => {
+        expect(f.moveCar("5,5/1,2N/IAIAIAIAA")).toEqual("1,3N");
+    });
 });
