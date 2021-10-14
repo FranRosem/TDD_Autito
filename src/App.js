@@ -13,13 +13,32 @@ function sanatizePosition(position) {
 }
 
 function carPosition(position) {
-  var listOfPosition = sanatizePosition(position);
-  return parseInt(listOfPosition[0]), parseInt(listOfPosition[1]);
+  var listSanatized = sanatizePosition(position);
+  return parseInt(listSanatized[0]), parseInt(listSanatized[1]);
 }
 
 function carDirection(position) {
-  var listOfPosition = sanatizePosition(position);
-  return listOfPosition[2];
+  var listSanatized = sanatizePosition(position);
+  return listSanatized[2];
 }
 
-module.exports = {carPosition, sanatizePosition, carDirection}
+function createMatrix(matrix) {
+  var listSanatized = sanatizePosition(position);
+  return [parseInt(listSanatized[0])], [parseInt(listSanatized[1])];
+}
+
+function createRoad(instructions) {
+  let explainInstructions = instructions.split("/");
+  var matrixDimention = explainInstructions[0];
+  var carInformation = explainInstructions[1];
+  var commands = explainInstructions[2];
+  
+  var matrix = createMatrix(matrixDimention);
+  var direction = carDirection(carInformation);
+  var position = carPosition(carInformation);
+
+  return [matrix, direction, position, commands];
+
+}
+
+module.exports = {carPosition, sanatizePosition, carDirection, createRoad}
